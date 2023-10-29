@@ -180,14 +180,21 @@
     height: 55px;
     width: 121px;
 }
-
 .back-img {
     position: relative;
+    overflow-y: auto;
+}
+.back-img thead th {
+    position: sticky;
+    top: 0px;
+}
+hr {
+    margin: 8px;
 }
 .content-sidebar table {
     position: absolute;
     top: 0px;
-    border-collapse: collapse; 
+    border-collapse: collapse;
 }
 thead{
     border: 1px solid;

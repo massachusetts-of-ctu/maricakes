@@ -96,6 +96,55 @@
                      <td>P 250.00</td>
                      <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
                   </tr>
+                  <tr>
+                     <td>This is a sample</td>
+                     <td>P 250.00</td>
+                     <td><input type="number" class="qty-input" min="1" max="50"></input></td>
+                     <td>P 250.00</td>
+                     <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
+                  </tr>
+                  <tr>
+                     <td>This is a sample</td>
+                     <td>P 250.00</td>
+                     <td><input type="number" class="qty-input" min="1" max="50"></input></td>
+                     <td>P 250.00</td>
+                     <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
+                  </tr>
+                  <tr>
+                     <td>This is a sample</td>
+                     <td>P 250.00</td>
+                     <td><input type="number" class="qty-input" min="1" max="50"></input></td>
+                     <td>P 250.00</td>
+                     <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
+                  </tr>
+                  <tr>
+                     <td>This is a sample</td>
+                     <td>P 250.00</td>
+                     <td><input type="number" class="qty-input" min="1" max="50"></input></td>
+                     <td>P 250.00</td>
+                     <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
+                  </tr>
+                  <tr>
+                     <td>This is a sample</td>
+                     <td>P 250.00</td>
+                     <td><input type="number" class="qty-input" min="1" max="50"></input></td>
+                     <td>P 250.00</td>
+                     <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
+                  </tr>
+                  <tr>
+                     <td>This is a sample</td>
+                     <td>P 250.00</td>
+                     <td><input type="number" class="qty-input" min="1" max="50"></input></td>
+                     <td>P 250.00</td>
+                     <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
+                  </tr>
+                  <tr>
+                     <td>This is a sample</td>
+                     <td>P 250.00</td>
+                     <td><input type="number" class="qty-input" min="1" max="50"></input></td>
+                     <td>P 250.00</td>
+                     <td><span class="fa fa-trash-o" style="font-size:25px"></span></td>
+                  </tr>
                </tbody>
             </table>
          </div>
