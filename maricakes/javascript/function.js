@@ -78,33 +78,22 @@ var addedProducts = [];
         document.querySelectorAll('.remove-button').forEach(function(button, index) {
     button.addEventListener('click', function() {
         var productNameToRemove = document.querySelectorAll('#order-summary-body td:nth-child(1)')[index].textContent;
-        // Remove the product from the addedProducts array
         addedProducts = addedProducts.filter(function(product) {
             return product !== productNameToRemove;
         });
-        // Remove the corresponding row from the order summary
         button.closest('tr').remove();
-        // Recalculate the payment summary
         updatePaymentSummary();
     });
 });
 
-
-
-// ----------------------------------------------
-// ... (existing JavaScript code)
-
-// Add event listener to the Confirm button
 document.getElementById('confirm-button').addEventListener('click', function() {
-    // Set the receipt date
+   
     var currentDate = new Date();
     document.getElementById('receiptDate').textContent = currentDate.toLocaleDateString();
 
-    // Create a receipt in the modal
     var receiptBody = document.getElementById('receipt-body');
-    receiptBody.innerHTML = ''; // Clear existing content
+    receiptBody.innerHTML = ''; 
 
-    // Iterate over the order summary and populate the receipt
     addedProducts.forEach(function(productName, index) {
         var quantity = parseInt(document.querySelectorAll('.quantity-input')[index].value);
         var price = parseFloat(document.querySelectorAll('#order-summary-body td:nth-child(2)')[index].textContent);
@@ -120,18 +109,16 @@ document.getElementById('confirm-button').addEventListener('click', function() {
         receiptBody.appendChild(row);
     });
 
-    // Calculate total price, tax, and grand total
     var totalPrice = parseFloat(document.getElementById('total-price').textContent);
     var discountPercentage = parseFloat(document.getElementById('discount').textContent);
     var changemod = parseFloat(document.getElementById('change').textContent);
-    var taxRate = 0.03; // 3% tax rate
+    var taxRate = 0.03; 
     var cashmod = parseFloat(cashInput.value) || 0;
 
     var taxAmount = totalPrice * taxRate;
     var discountAmount = (totalPrice * discount) / 100;
     var grandTotal = totalPrice - discountAmount + taxAmount;
 
-    // Update the modal with calculated values
     document.getElementById('total-price-modal').textContent = totalPrice.toFixed(2);
     document.getElementById('tax-amount-modal').textContent = taxAmount.toFixed(2);
     document.getElementById('discount-modal').textContent = discountAmount.toFixed(2);
@@ -139,17 +126,14 @@ document.getElementById('confirm-button').addEventListener('click', function() {
     document.getElementById('cash-modal').textContent = cashmod.toFixed(2);
     document.getElementById('change-modal').textContent = changemod.toFixed(2);
 
-    // Show the modal
     var modal = document.getElementById('receiptModal');
     modal.style.display = 'block';
 
-    // Close the modal when the user clicks the close button
     var closeBtn = document.querySelector('.close');
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
     });
 
-    // Close the modal when the user clicks outside the modal content
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
             modal.style.display = 'none';
@@ -159,15 +143,12 @@ document.getElementById('confirm-button').addEventListener('click', function() {
 
 var printButton = document.getElementById('print-button');
 printButton.addEventListener('click', function() {
-    // Clone the modal content and remove the Print button
     var clonedContent = document.getElementById('receiptModal').cloneNode(true);
     var printButtonToRemove = clonedContent.querySelector('#print-button');
     printButtonToRemove.remove();
 
-    // Open a new window
     var printWindow = window.open('', '_blank');
 
-    // Populate the new window with the modified content of the modal
     printWindow.document.open();
     printWindow.document.write(`
         <html>
@@ -181,7 +162,6 @@ printButton.addEventListener('click', function() {
     `);
     printWindow.document.close();
 
-    // Print the new window
     printWindow.print();
 });
 

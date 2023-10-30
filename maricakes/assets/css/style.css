@@ -324,7 +324,11 @@ td:last-child {
     transition: 0.3s;
 }
 
-/* Modal Styles */
+
+
+
+
+
 .modal {
     display: none;
     position: fixed;
