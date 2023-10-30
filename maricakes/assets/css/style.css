@@ -43,12 +43,29 @@
     margin: 0 20px;
 }
 
+.error-message{
+    position: absolute;
+    margin-top: -110px;
+    margin-left: 100px;
+    color: red;
+}
+
+.quantity-input {
+    font-size: 15px;
+    width: 70px;
+    text-align: center;
+}
+
+.remove-button{
+    cursor: pointer;
+}
+
 .content-items {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     grid-template-rows: repeat(3, 370px);
-    grid-gap: 30px;
-    height: 85vh;
+    grid-gap: 20px;
+    height: 90vh;
     max-height: 100vh;
     padding: 50px;
     width: 70%;
@@ -76,7 +93,10 @@
 .item h4 {
     margin-bottom: 4px;
 }
-.item p {
+.item p.currency,
+.item p.prc {
+    display: inline-flex;
+    align-items: center;
     color: #c05dc0;
     font-weight: 700;
 }
@@ -86,22 +106,22 @@
     /* margin-bottom: 10px; */
     object-fit: cover;
 }
-.add {
+.add-to-cart {
     background-color: #c05dc0;
-    color: black;
+    color: white;
     font-weight: 100;
-    padding: 4px 10px;
-    left: 20px;
-    bottom: 2px;
+    padding: 5px 10px;
+    top: 0px;
     border-radius: 5px;
     position: relative;
     transition: 0.3s;
     border: none;
+    cursor: pointer;
 }
-.add:hover {
+.add-to-cart:hover {
     scale: 105%;
 }
-.add:active {
+.add-to-cart:active {
     background-color: transparent;
     outline: solid 1px;
     outline-color: #c05dc0;
@@ -113,6 +133,9 @@
     opacity: 0.1;
     width: 100%;
     position: relative;
+}
+.qty-input{
+    display: none;
 }
 .search-bar {
     align-items: center;     
@@ -142,28 +165,59 @@
     height: 36px;
     align-items: center;
     margin: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .bill span {
     width: max-content;
 }
+
+.sign1{margin-left: 100px;}
+.sign2{margin-left: 115px;}
+.sign3{margin-left: 85px;}
+.sign4{margin-left: 115px;}
+#discount{margin-left: 80px;}
+#cash{margin-left: 137px;margin-right: 50px;}
+.commit-button{
+    background-color: #c05dc0;
+    color: white;
+    font-weight: 100;
+    padding: 5px 10px;
+    top: 0px;
+    border-radius: 5px;
+    position: relative;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.commit-button:hover {
+    scale: 105%;
+}
+.commit-button:active {
+    background-color: transparent;
+    outline: solid 1px;
+    outline-color: #c05dc0;
+    color: #c05dc0;
+    transition: 0.3s;
+}
+
 .bill input {
     width: 117px;
     height: -webkit-fill-available;
-    margin-left: 3px;
-    border: none;
+    margin-left: 15px;
+    border: 1px solid grey;
+    text-align: left;
+    border-radius: 10px;
     background: transparent;
     font-weight: 500;
     font-size: large;
-    text-align: left;
     padding-top: 1px;
 }
 .bill input:focus {
     outline: none;
 }
 
-.bill .discount {margin-left: 101px;width: 45px;text-align: right;}
+.bill .disc {margin-left: 90px;width: 45px;text-align: right;}
 .bill .total {margin-left: 138px;}
 .bill .tax {margin-left: 155px;}
 .bill .Gtotal {margin-left: 77px;}
@@ -182,14 +236,15 @@
 }
 .back-img {
     position: relative;
-    overflow-y: auto;
+    width: auto;
+    z-index: -1;
 }
 .back-img thead th {
     position: sticky;
     top: 0px;
 }
 hr {
-    margin: 8px;
+    margin-top: -80px;
 }
 .content-sidebar table {
     position: absolute;
@@ -202,7 +257,6 @@ thead{
 tbody{
     background-color: #d19bce;
 }
-
 tbody td {
     padding-left: 3px;
 }
@@ -218,9 +272,6 @@ th:first-child {
     border-radius: 8px 0px 0px 0px;
     overflow-x: hidden;
 }
-.tr-price {width: 116px;}
-.tr-qty {width: 60px;}
-.tr-total {width: 152px;}
 th:last-child {
     width: 77px;
     text-align: center;
@@ -273,9 +324,38 @@ td:last-child {
     transition: 0.3s;
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-
-
-
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
