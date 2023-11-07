@@ -74,11 +74,11 @@ include('products.php');
          </div>
          <div class="bill">
             <label>Change:</label>
-            <span class="sign4">₱<span id="change">0.00</span></span>
+            <span class="sign4"><span id="change-sign">₱</span><span id="change">0.00</span></span>
          </div>
          <div class="below-button">
             <button class="confirm" id="confirm-button">Confirm</button>
-            <button class="reset">Reset</button>
+            <button class="reset" id="reset-button">Reset</button>
          </div>
     </div>
     

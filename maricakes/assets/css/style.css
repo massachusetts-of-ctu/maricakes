@@ -63,9 +63,9 @@
 .content-items {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    grid-template-rows: repeat(3, 370px);
+    grid-template-rows: repeat(2, 370px);
     grid-gap: 20px;
-    height: 90vh;
+    height: 90.7vh;
     max-height: 100vh;
     padding: 50px;
     width: 70%;
@@ -75,8 +75,8 @@
 
 .content-sidebar {
     flex: 2;
-    height: 720px;
-    max-height: 100%;
+    height: 100%;
+    min-height: 781px;
     background: #e2d0e1;
     color: white;
     position: sticky;
@@ -179,6 +179,7 @@
 #discount{margin-left: 80px;}
 #cash{margin-left: 137px;margin-right: 50px;}
 .commit-button{
+    right: 32px;
     background-color: #c05dc0;
     color: white;
     font-weight: 100;
@@ -244,7 +245,7 @@
     top: 0px;
 }
 hr {
-    margin-top: -80px;
+    margin-top: -70px;
 }
 .content-sidebar table {
     position: absolute;
@@ -324,10 +325,12 @@ td:last-child {
     transition: 0.3s;
 }
 
-
-
-
-
+.confirm:disabled, button[disabled] {
+    background-color: #4b7044;
+    border-color: #4b7044;
+    color: white;
+    scale: 100% !important;
+}
 
 .modal {
     display: none;
@@ -362,4 +365,16 @@ td:last-child {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media (max-width: 1280px) and (max-height: 1024px)   {
+    .content-items {
+        height: 91vh;
+    }
+    .content-sidebar {
+        min-height: 833px;
+    }
+    hr {
+        margin-top: -15px;
+    }
 }

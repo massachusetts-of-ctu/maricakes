@@ -61,17 +61,21 @@ var addedProducts = [];
             grandTotalElement.textContent = grandTotal.toFixed(2);
 
             var cashInput = document.getElementById('cash');
-        var commitButton = document.getElementById('commit-button');
-        var changeElement = document.getElementById('change');
+            var commitButton = document.getElementById('commit-button');
+            var changeElement = document.getElementById('change');
 
         commitButton.addEventListener('click', function() {
             var cashAmount = parseFloat(cashInput.value) || 0;
 
             if (cashAmount < grandTotal) {
                 changeElement.textContent = 'Not enough cash!';
+                document.getElementById('confirm-button').disabled = true;
+                document.getElementById('change-sign').textContent = '';
             } else {
                 var change = cashAmount - grandTotal;
+                document.getElementById('change-sign').textContent = '₱';
                 changeElement.textContent = change.toFixed(2);
+                document.getElementById('confirm-button').disabled = false;
             }
         });
 
@@ -139,6 +143,10 @@ document.getElementById('confirm-button').addEventListener('click', function() {
             modal.style.display = 'none';
         }
     });
+});
+
+document.getElementById('reset-button').addEventListener('click', function() {
+    location.reload();
 });
 
 var printButton = document.getElementById('print-button');

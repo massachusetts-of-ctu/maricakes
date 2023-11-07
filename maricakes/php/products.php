@@ -18,7 +18,7 @@
             <img src="../assets/img/<?php echo $row["pro_img"]; ?>">
             <h4><?php echo $row["pro_name"]; ?></h4>
 	         <p><?php echo $row["pro_price"]; ?></p>
-            <button class="fa fa-cart-plus add-to-cart">&nbsp;Add to card</button>
+            <button class="fa fa-cart-plus add-to-cart">&nbsp;Add to cart</button>
         </div>
          <?php
             }
