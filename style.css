@@ -1,0 +1,237 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+}
+body {
+  background: #f3f3f6b5;
+}
+
+.navbar {
+   background: #c05dc0;
+   color: #333;
+   display: flex;
+   align-items: center;
+   padding: 15px;
+   height: 40px;
+}
+.navbar img {
+   width: 8%;
+   margin-top: 4px;
+}
+.navbar h3 {
+   color: #fff;
+   margin: 10px;
+}
+.navbar .nav-logo {
+    display: flex;
+    align-items: center;
+}
+.content {
+    display: flex;
+}
+.left-sidebar {
+    background-color: #e2d0e1;
+    width: 13%;
+    height: 89vh; 
+    margin-right: 30px;
+}
+.cont-products {
+   padding: 2% 3%;
+}
+.cont-products h1 {
+   color: #c05dc0;
+}
+.cont-products .searchbar {
+  float: right;
+  margin-bottom: 20px;
+}
+.searchbar input[type=text] {
+  padding: 4px 38px 3px 7px;
+  font-size: 17px;
+  border: 1px solid;
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 10px #e2d0e1;
+}
+.searchbar i {
+  position: relative;
+  right: 20%;
+  top: 2%;
+  font-size: 23px;
+}
+.cont-products-table {
+  margin-top: 10px;
+}
+.cont-products-table, .tbl-orders {
+  width: 100%;
+  border: 2px solid;
+  border-collapse: collapse;
+  text-align: center;
+}
+.cont-products-table th, .cont-products-table td, .tbl-orders th, .tbl-orders td {
+  border: 2px solid;
+}
+th {
+  padding: 8px;
+}
+td {
+  padding: 8px;
+}
+.tbl-col-1 {
+  width: 320px
+} 
+.tbl-col-4 {
+  width: 200px;
+  
+}
+.tbl-col-4 a {
+  text-decoration: none;
+  margin-right: 25px; 
+}
+.tbl-col-4 a:hover {
+  text-decoration:underline;
+}
+.tbl-col-4 button {
+  padding: 3px;
+  color: red;
+  font-size: 15px;
+  letter-spacing: 1px;
+  border: 1px solid #d19bce;
+  background: transparent;
+}
+.tbl-col-4 button:hover {
+  background: #f3f3f6b5;
+}
+.cont-products .add-btn {
+  float: right;
+  margin-top: 10px;
+}
+.add-btn button {
+  font-size: 18px;
+  padding: 9px 30px ;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  background-color: #c05dc0;
+}
+
+
+
+/*============== RECENT ORDERS ==============*/
+.right-content{
+  padding: 20px; 
+  margin-left: 5px;
+}
+.analytics {
+  display: flex;
+}
+.box {
+  width: 48vh;
+  height: 150px;
+  background: #d19bce;
+  margin-bottom: 10px;
+  margin-right: 40px;
+  border-radius: 30px;
+  padding: 10px;
+}
+.table-recent_orders {
+  padding: 10px 30px;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 20px;
+}
+.tbl-orders {
+  margin-top: 15px;
+}
+.tbl-header{
+  background: #e2d0e1;
+}
+.tbl-id {
+  width: 120px;
+}
+.tbl-name {
+  width: 300px;
+}
+.tbl-date{
+  width: 140px;
+}
+.tbl-total{
+  width: 150px;
+}
+
+
+/*============== ORDER DETAILS ==============*/
+.cont-center {
+  margin-top: 30px;
+}
+.cont-center table {
+  border-collapse: collapse;
+}
+.cont-center table th {
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+.tables-of-order {
+  display: flex;
+  margin-top: 20px;
+}
+.tbl-details {
+  margin-right: 45px;
+  border: 1px solid;
+  text-align: center;
+}
+.tbl-summary {
+  background: #fff;
+}
+.tbl-info {
+  margin-top: 30px;
+  background: #fff;
+}
+.col-product {
+  width: 300px;
+}
+.col-price {
+  width: 200px;
+}
+.col-qty{
+  width: 90px;
+}
+.col-summary {
+  width: 100px;
+}
+.col-amount{
+  width: 130px;
+}
+.row-total {
+  background: #c05dc0;
+  font-size: 20px;
+  font-weight: 800;
+}
+.cont-center h1 {
+  color: #c05dc0;
+}
+.tables-of-order th {
+  background:  #d19bce;
+}
+.col-left-info {
+  width: 90px;
+}
+.col-right-info {
+  width: 140px;
+}
+.tbl-details tr:nth-child(even) {
+  background-color: #e2d0e1;
+ }
+
+.tbl-details tr:hover {
+  background-color: #e2d0e1;
+}
+.right-sidebar {
+  background-color: #e2d0e1;
+  width: 8%;
+  margin-left: 25px;
+  height: 89vh; 
+  flex: 2;
