@@ -8,13 +8,14 @@
                     <th>Product</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody id="receipt-body">
             </tbody>
-            ==========================================
+            ===========================================
         </table>
-        ==========================================
+        ===========================================
         <br>
         <div class="ord-sum">
         <h2>Order Summary</h2>
@@ -31,7 +32,7 @@
             <label>Change:</label>
             <span>₱<span id="change-modal">0.00</span></span>
     </div>
-    ==========================================
+    ===========================================
     <button id="print-button">Print</button>
 </div>
 </div>

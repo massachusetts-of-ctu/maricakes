@@ -66,7 +66,7 @@ var addedProducts = [];
 
         commitButton.addEventListener('click', function() {
             var cashAmount = parseFloat(cashInput.value) || 0;
-
+            
             if (cashAmount < grandTotal) {
                 changeElement.textContent = 'Not enough cash!';
                 document.getElementById('confirm-button').disabled = true;

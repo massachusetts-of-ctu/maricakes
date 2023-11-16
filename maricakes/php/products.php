@@ -1,4 +1,4 @@
-<div class="container">
+
          <?php
          if(mysqli_num_rows($all_products) == 0) { 
          ?>
@@ -10,7 +10,7 @@
          <?php
                } else {
          ?>
-            <div class="content-items">
+            <div class="content-items" id="product-list">
          <?php
             while($row = mysqli_fetch_assoc($all_products)){
          ?>
@@ -18,7 +18,13 @@
             <img src="../assets/img/<?php echo $row["pro_img"]; ?>">
             <h4><?php echo $row["pro_name"]; ?></h4>
 	         <p><?php echo $row["pro_price"]; ?></p>
-            <button class="fa fa-cart-plus add-to-cart">&nbsp;Add to cart</button>
+            <?php
+               if($row["availability"] == "yes") {
+                  echo '<button class="fa fa-cart-plus add-to-cart">&nbsp;Add to cart</button>';
+               } elseif($row["availability"] == "no") {
+                  echo '<h3 class="out-of-stock">Out of stock.</h3>';
+               }
+            ?>
         </div>
          <?php
             }
@@ -26,4 +32,4 @@
          <?php
                }
          ?>
-    </div>
+
