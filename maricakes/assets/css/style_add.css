@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background: #f3f3f6b5;
+}
+
+.content {
+    display: flex;
+}
+.left-sidebar {
+  background-color: #e2d0e1;
+  width: 250px; /*250px*/
+  height: 90vh;
+}
+.cont-products {
+   padding: 2% 3%;
+}
+.cont-products h1 {
+   color: #c05dc0;
+}
+.cont-products .searchbar {
+  float: right;
+  margin-bottom: 20px;
+}
+.searchbar input[type=text] {
+  padding: 4px 38px 3px 7px;
+  font-size: 17px;
+  border: 1px solid;
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 10px #e2d0e1;
+}
+.searchbar i {
+  position: relative;
+  right: 20%;
+  top: 2%;
+  font-size: 23px;
+}
+.cont-products-table {
+  width: 950px;
+  max-width: 100%;
+  /* border: 2px solid #d19bce; */
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 30px;
+}
+/* .tbl-orders {
+  width: 100%;
+  border: 2px solid;
+  border-collapse: collapse;
+  text-align: center;
+} */
+
+.tbl-orders {
+  width: 950px;
+  max-width: 100%;
+  /* border: 2px solid; */
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 30px;
+}
+.tbl-orders tr:nth-child(even) {
+  background-color: #e2d0e1;
+}
+
+.cont-products-table th, .cont-products-table td, .tbl-orders th, .tbl-orders td {
+  /* border: 2px solid; */
+  text-align: center;
+  /* border-color: rgb(94, 92, 92); */
+  border-radius: 3px;
+}
+
+.cont-products-table tr:nth-child(even) {
+  background-color: #e2d0e1;
+ }
+
+thead {
+  background-color: #d19bce;
+  border: none;
+}
+thead b{
+  color:#fff;
+}
+tbody {
+  background-color: transparent;
+}
+th {
+  padding: 8px;
+}
+td {
+  padding: 8px;
+}
+.tbl-col-1 {
+  width: 320px
+} 
+.tbl-col-4 {
+  width: 200px;
+  
+}
+.tbl-col-4 .delete {
+  padding: 3px 6px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid;
+  background: #dc3545;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.tbl-col-4 .delete:hover {
+  scale: 105%;
+}
+.tbl-col-4 .delete:active {
+  background-color: transparent;
+  color: #dc3545;
+}
+.tbl-col-4 .edit {
+  padding: 3px 6px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid;
+  background: rgb(53, 70, 220, 70, 220);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.tbl-col-4 .edit:hover {
+  scale: 105%;
+}
+.tbl-col-4 .edit:active {
+  background-color: transparent;
+  color: rgb(53, 70, 220, 70, 220);
+}
+.cont-products .add-btn {
+  float: right;
+}
+.add-btn button {
+  font-size: 18px;
+  padding: 9px 30px ;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  background-color: #c05dc0;
+  transition: 0.3s;
+}
+.add-btn button:hover {
+  scale: 105%;
+}
+.add-btn button:active {
+  background-color: transparent;
+  outline: solid 1px;
+  outline-color: #c05dc0;
+  color: #c05dc0;
+  transition: 0.3s;
+}
+
+/*============== MODAL ==============*/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+/*============== RECENT ORDERS ==============*/
+th:first-child {
+  width: 140px;
+}
+.right-content{
+  padding: 20px;
+  margin-left: 38px;
+}
+.analytics {
+  position: relative;
+  display: flex;
+  left: 30px;
+}
+.box {
+  width: 45vh;
+  height: 150px;
+  background: #d19bce;
+  margin-bottom: 10px;
+  margin-right: 40px;
+  border-radius: 30px;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+.line {
+  outline: 1px #fff;
+  position: relative;
+  width: 237px;
+  left: 80px;
+  top: 160px;
+}
+.table-recent_orders {
+  padding: 10px 30px;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 20px;
+  overflow-y: scroll;
+  height: 70%;
+}
+.tbl-orders {
+  margin-top: 15px;
+}
+.tbl-header{
+  background: #d19bce;
+}
+.tbl-id {
+  width: 120px;
+}
+.tbl-name {
+  width: 300px;
+}
+.tbl-date{
+  width: 140px;
+}
+.tbl-total{
+  width: 150px;
+}
+
+
+/*============== ORDER DETAILS ==============*/
+.cont-center {
+  position: relative;
+}
+.cont-center table {
+  border-collapse: collapse;
+}
+.cont-center table th {
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+.tables-of-order {
+  display: flex;
+  margin-top: 20px;
+}
+.tbl-details {
+  margin-right: 45px;
+  /* border: 1px solid; */
+  text-align: center;
+}
+.tbl-summary {
+  background: #fff;
+  width: 340px;
+}
+
+.tbl-summary tbody td, .tbl-info tbody td {
+  padding-left: 20px;
+}
+.tbl-summary th:first-child, .tbl-info th:first-child {
+  border-radius: 8px 8px 0px 0px;
+}
+.tbl-info {
+  margin-top: 30px;
+  background: #fff;
+  width: 340px;
+}
+.col-product {
+  width: 300px;
+}
+.col-price {
+  width: 200px;
+}
+.col-qty{
+  width: 90px;
+}
+.col-summary {
+  width: 100px;
+}
+.col-amount{
+  width: 130px;
+}
+.row-total {
+  background: #c05dc0;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+}
+.cont-center h1 {
+  color: #c05dc0;
+}
+.tables-of-order th {
+  background:  #d19bce;
+}
+.col-left-info {
+  width: 90px;
+}
+.col-right-info {
+  width: 140px;
+}
+.tbl-details tr:nth-child(even) {
+  background-color: #e2d0e1;
+ }
+
+/* .tbl-details tr:hover {
+  background-color: #e2d0e1;
+} */

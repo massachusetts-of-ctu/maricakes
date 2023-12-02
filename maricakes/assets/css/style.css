@@ -65,7 +65,7 @@
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     grid-template-rows: repeat(2, 370px);
     grid-gap: 20px;
-    height: 90.7vh;
+    height: 100%;
     max-height: 100vh;
     padding: 50px;
     width: 70%;
@@ -75,7 +75,7 @@
 
 .content-sidebar {
     flex: 2;
-    height: 100%;
+    height: 110%;
     min-height: 781px;
     background: #e2d0e1;
     color: white;
@@ -141,19 +141,20 @@
     align-items: center;     
 }
 .search-bar input[type="text"] {
-    padding: 10px 30px;
+position: relative;
+    padding: 10px 41px;
     border: 1px #c05dc0;
     border-radius: 50px;
     font-size: 16px;
-    margin-left: 40px;
+    left: 40px;
 }
 .search-bar i {
-   top: 9px;
-   left: 68px;
-   float: left;
-   position: relative;
-   font-size: 20px;
-   border: 1px;
+    position: relative;
+    top: 11px;
+    left: 73px;
+    float: left;
+    font-size: 20px;
+    border: 1px;
 }
 
 .bill {
@@ -178,6 +179,7 @@
 .sign4{margin-left: 115px;}
 #discount{margin-left: 80px;}
 #cash{margin-left: 137px;margin-right: 50px;}
+#customer{margin-left: 50px;width: 50%;font-size: 15px;}
 .commit-button{
     right: 32px;
     background-color: #c05dc0;
@@ -245,7 +247,7 @@
     top: 0px;
 }
 hr {
-    margin-top: -70px;
+    margin-top: -150px;
 }
 .content-sidebar table {
     position: absolute;
@@ -334,23 +336,24 @@ td:last-child {
 
 .modal {
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgb(0,0,0);
     background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
+    position: absolute;
     background-color: #fefefe;
-    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 30%;
+    margin: 10% 35% auto;
+
 }
 
 .close {
@@ -372,9 +375,46 @@ td:last-child {
         height: 91vh;
     }
     .content-sidebar {
-        min-height: 833px;
+        min-height: 827px;
     }
     hr {
         margin-top: -15px;
     }
+}
+
+.recent {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-recent {
+    position: absolute;
+    width: 1100px;
+    background-color: #fefefe;
+    padding: 50px;
+    border: 1px solid #888;
+    margin: 6% 22% auto;
+
+}
+
+.recent-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.recent-close:hover,
+.recent-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
