@@ -1,0 +1,15 @@
+.header {
+    text-align: center;
+}
+.order{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.lower{
+    display: flex;
+    justify-content: space-between;
+}
+.footer {
+    text-align: center;
+}
