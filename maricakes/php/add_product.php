@@ -12,40 +12,61 @@ $all_products = $conn->query($sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../assets/css/style_add.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../assets/css/addproduct.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../assets/css/screen.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>MariCakes</title>
+    <title>MariCakes | Manage Products</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
 </head>
 
 <body>
+    <div class="load">
+      <div class="load_icon"></div>
+   </div>
     <div class="navbar">
-        <div class="navbar-left">
-            <img src="../assets/img/logo.png" alt="MariCakes Logo">
-            <h2>MariCakes</h2>
-            <div class="search-bar">
-                <input type="text" name="search" placeholder="Search...">
-                <i class="fa fa-search"></i>
+      <div class="navbar-left">
+         <img src="../assets/img/logo.png">
+			<a href="../php/main.php">
+				<h2>MariCakes </h2>
+			</a>
+         <div class="search-bar">
+            <form id="search-form">
+            
+               <h3>   |   Cashier: <?php echo $_SESSION['username']; ?></h3>
+               
+            </form>
+         </div>
+      </div>
+      <div class="navbar-right">
+            <div class="message-icon" style="right: 20px; position:relative;">
+               <i class="bi bi-messenger"></i>
             </div>
-        </div>
-        <div class="navbar-right">
-        <button type="submit" id="search-form"><a href="../php/main.php">POS</a></button>&nbsp;&nbsp;
-        <button type="submit" id="search-form"><a href="../php/recent_orders.php">Recent Orders</a></button>&nbsp;&nbsp;
-        <button type="submit" id="search-form"><a href="../php/register.php">Add Account</a></button>&nbsp;&nbsp;
-            <div class="message-icon">
-                <i class="fa fa-envelope-o"></i>
-            </div>
-            <div class="notification-icon">
-                <i class="fa fa-bell-o"></i>
-            </div>
-        </div>
-    </div>
+            <!-- <div class="user-icon">
+                <i class="fa fa-user-o" id="user"></i>
+                <div class="dropdown-cont">
+                  <h3> <?php echo $_SESSION['username']; ?></h3>
+                  <div class="select"><a href="../php/add_product.php"><i class="bi bi-cake"></i>Manage Products</a></div>
+                  <div class="select"><a href="../php/recent_orders.php"><i class="bi bi-card-text"></i>Recent Orders</a></div>
+                  <div class="select"><a href="../php/register.php"><i class="bi bi-person-add"></i>Add Account</a></div>
+                  <div class="select"><a href="../process/logout.php"><i class="bi bi-box-arrow-right"></i>Log Out</a></div>
+                </div> 
+            </div> -->
+      </div>
+   </div>
 
     <div class="content">
-        <div class="left-sidebar"></div>
+        <div class="left-sidebar" style="width: 327px;">
+            <div class="select"><a href="../php/main.php"><i class="bi bi-cash-coin"></i>Point of Sale</a></div>
+            <div class="select"><a href="../php/add_product.php"><i class="bi bi-cake"></i>Manage Products</a></div>
+            <div class="select"><a href="../php/recent_orders.php"><i class="bi bi-card-text"></i>Recent Orders</a></div>
+            <div class="select"><a href="../php/register.php"><i class="bi bi-person-add"></i>Add User</a></div>
+            <div class="select"><a href="../process/logout.php"><i class="bi bi-box-arrow-right"></i>Log Out</a></div>
+		</div>
         <div class="cont-products">
             <h1>Products
                 <span class="add-btn">
@@ -81,6 +102,7 @@ $all_products = $conn->query($sql);
                     <input type="text" id="pro_name" name="pro_name" placeholder="Enter Product name">
                     <label for="pro_price">Price</label>
                     <input type="number" id="pro_price" name="pro_price" placeholder="Enter Product Price">
+                    <label for="FileUpload">Product Image</label>
                     <input type="file" name="FileUpload" id="fileInput" accept="image/*">
                     <input type="submit" value="Submit" name="UploadImg">
                 </form>
@@ -111,6 +133,7 @@ $all_products = $conn->query($sql);
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../javascript/edit_pro.js"></script>
+    <script src="../javascript/preload.js"></script>
     <script src="../javascript/grab-id.js"></script>
     <script src="../javascript/modal.js"></script>
 </body>

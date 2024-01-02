@@ -2,6 +2,7 @@ function openModal() {
     $('#EditModal').show();
     $('#overlay').show();
 }
+
 function closeModal() {
     $('#EditModal').hide();
     $('#overlay').hide();
@@ -113,7 +114,7 @@ $(document).ready(function() {
                     });
 
                     // Populate other fields
-                    $('#r_prototal').text('₱ ' + subtotal.toFixed(2)); // Display the total with two decimal places
+                    $('#r_prototal').text('₱ ' + subtotal.toFixed(2));
                     $('#r_tax').text('₱ ' + productDetails.tax);
                     $('#r_discount').text('₱ ' + productDetails.discount);
                     $('#r_gtotal').text('₱ ' + productDetails.total);

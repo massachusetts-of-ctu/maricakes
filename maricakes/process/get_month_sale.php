@@ -16,10 +16,10 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $totalSum1 += $row['total'];
     }
-    echo '<div class="box box-3"><p> Total Sales For the Month of ' . date("F") . '</p> ₱' . $totalSum1 . '<hr class="line"></div>';
+    echo '<div class="box box-3"><p> Total Sales For the Month of ' . date("F") . '</p> ₱' . $totalSum1 . ' <hr class="line"> </div>';
 
 } else {
-    echo '<div class="box box-3"><p> Total Sales For the Month of ' . date("F") . '</p> ₱ 0 <hr class="line"></div>';
+    echo '<div class="box box-3"><p> Total Sales For the Month of ' . date("F") . '</p> ₱ 0 <hr class="line"> </div>';
 }
 
 $stmt->close();

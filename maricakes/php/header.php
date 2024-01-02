@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../assets/css/addproduct.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
    	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <title>MariCakes</title>
         <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">

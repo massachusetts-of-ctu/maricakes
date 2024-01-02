@@ -23,7 +23,7 @@ if (mysqli_num_rows($all_products) == 0) {
             <td>₱
                 <?php echo $row["pro_price"]; ?>
             </td>
-            <td>
+            <td style="width: 150px;">
                 <?php echo $row["availability"]; ?>
             </td>
             <td class="tbl-col-4"><button class="edit edit-product" name="edit" onclick="openModal()" data-product-id="<?php echo $row["pro_id"]; ?>">Edit</button><button class="delete delete-product" data-product-id="<?php echo $row["pro_id"]; ?>">Delete</button></td>

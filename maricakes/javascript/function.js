@@ -1,35 +1,72 @@
 var addedProducts = [];
 
-document.querySelectorAll('.add-to-cart').forEach(function(button, index) {
-    button.addEventListener('click', function() {
-        var productName = document.querySelectorAll('.product-card h4')[index].textContent;
-        var productId = parseFloat(document.querySelectorAll('.product-card b')[index].textContent);
+//for selections 
+var op = 0;
+document.getElementById('user').addEventListener('click', function () {
+    if (op == 0) {
+        document.querySelector('.dropdown-cont').classList.add("drop-cont-active");
+        op = 1;
+    } else {
+        document.querySelector('.dropdown-cont').classList.remove("drop-cont-active");
+        op = 0;
+    }
+});
 
-        if (addedProducts.some(product => product.name === productName)) {
-            document.getElementById('error-message').textContent = 'Product already added to order.';
+
+
+
+document.querySelectorAll('.add-to-cart').forEach(function (button, index) {
+    button.addEventListener('click', function () {
+        var productName = document.querySelectorAll('.product-card .product-name')[index].textContent;
+        var productId = parseFloat(document.querySelectorAll('.product-card .product-id')[index].textContent);
+
+        var existingProduct = addedProducts.find(product => product.name === productName && product.inCart);
+
+        if (existingProduct && existingProduct.inCart) {
+            var existingRow = Array.from(document.querySelectorAll('.side-product-name')).find(element => element.textContent === productName).closest('tr');
+            var quantityInput = existingRow.querySelector('.quantity-input');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
         } else {
-            addedProducts.push({ name: productName, id: productId });
-            var productPrice = parseFloat(document.querySelectorAll('.product-card p')[index].textContent);
+            addedProducts.push({ name: productName, id: productId, inCart: true });
+            var productPrice = parseFloat(document.querySelectorAll('.product-card .product-price')[index].textContent);
             var newRow = document.createElement('tr');
             newRow.innerHTML = `
-                <td>${productName}</td>
-                <td>${productId}</td>
-                <td>${productPrice.toFixed(2)}</td>
+                <td class="side-product-name">${productName}</td>
+                <td class="side-product-id">${productId}</td>
+                <td class="side-product-price">${productPrice.toFixed(2)}</td>
                 <td><input type="number" value="1" min="1" class="quantity-input"></td>
-                <td><span class="fa fa-trash-o remove-button" style="font-size:25px"></span></td>
+                <td class="side-product-remove"><span class="fa fa-trash-o remove-button" style="font-size:25px"></span></td>
             `;
             document.getElementById('order-summary-body').appendChild(newRow);
             document.getElementById('error-message').textContent = '';
 
             var newQuantityInput = newRow.querySelector('.quantity-input');
-            newQuantityInput.addEventListener('input', function() {
+            newQuantityInput.addEventListener('input', function () {
                 updatePaymentSummary();
             });
-
-            updatePaymentSummary();
         }
+
+        updatePaymentSummary();
     });
 });
+
+document.getElementById('order-summary-body').addEventListener('click', function (event) {
+    if (event.target.classList.contains('remove-button')) {
+        var productNameToRemove = event.target.closest('tr').querySelector('.side-product-name').textContent;
+        var productIndex = addedProducts.findIndex(product => product.name === productNameToRemove && product.inCart);
+
+        if (productIndex !== -1) {
+            addedProducts[productIndex].inCart = false;
+        }
+
+        event.target.closest('tr').remove();
+        updatePaymentSummary();
+    }
+});
+
+
+
+
 
 
 var discountInput = document.getElementById('discount');
@@ -85,25 +122,31 @@ function updatePaymentSummary() {
     document.querySelectorAll('.remove-button').forEach(function (button, index) {
         button.addEventListener('click', function () {
             var productNameToRemove = document.querySelectorAll('#order-summary-body td:nth-child(1)')[index].textContent;
-            addedProducts = addedProducts.filter(function (product) {
-                return product !== productNameToRemove;
+            var productIndex = addedProducts.findIndex(function (product) {
+                return product.name === productNameToRemove;
             });
+
+            if (productIndex !== -1) {
+                addedProducts[productIndex].inCart = false;
+            }
+
             button.closest('tr').remove();
             updatePaymentSummary();
         });
     });
 
-    document.getElementById('confirm-button').addEventListener('click', function() {
+
+    document.getElementById('confirm-button').addEventListener('click', function () {
         var receiptBody = document.getElementById('receipt-body');
         receiptBody.innerHTML = '';
-    
-        addedProducts.forEach(function(product, index) {
+
+        addedProducts.forEach(function (product, index) {
             var productName = product.name;
             var productId = product.id;
             var quantity = parseInt(document.querySelectorAll('.quantity-input')[index].value);
             var price = parseFloat(document.querySelectorAll('#order-summary-body td:nth-child(3)')[index].textContent);
             var totalPrice = quantity * price;
-    
+
             var row = document.createElement('tr');
             row.innerHTML = `
                 <td class="prodName">${productName}</td>
@@ -146,11 +189,7 @@ function updatePaymentSummary() {
         });
     });
 
-    
-    
-    
 }
 document.getElementById('reset-button').addEventListener('click', function () {
     location.reload();
 });
-// Declare variables outside the event listeners

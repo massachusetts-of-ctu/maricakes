@@ -16,14 +16,17 @@
          ?>
         <div class="item one product-card">
             <img src="../assets/img/<?php echo $row["pro_img"]; ?>">
-            <h4><?php echo $row["pro_name"]; ?></h4>
-            <b><?php echo $row["pro_id"]; ?></b>
-	         <p><?php echo $row["pro_price"]; ?></p>
+            <i>Product ID: </i><i class="product-id"><?php echo $row["pro_id"]; ?></i>
+            <p class="product-name"><?php echo $row["pro_name"]; ?></p> 
+            <div class="price">
+	         <p class="currency">₱</p>
+            <p class="product-price"><?php echo $row["pro_price"]; ?></p>
+            </div>
             <?php
                if($row["availability"] == "Available") {
-                  echo '<button class="fa fa-cart-plus add-to-cart">&nbsp;Add to cart</button>';
+                  echo '<button class="add-to-cart">&nbsp;Add to cart</button>';
                } elseif($row["availability"] == "Not Available") {
-                  echo '<button disabled class="fa fa-times add-to-cart">&nbsp;Not Available</button>';
+                  echo '<button disabled class="add-to-cart">&nbsp;Not Available</button>';
                }
             ?>
         </div>

@@ -1,16 +1,130 @@
+/*
+ SCREEN SIZES AVAILABLE
+ 1280 x 1024
+ 1280 x 897 
+ 1366 x 768 
+*/
+
 @media (max-width: 1280px) and (max-height: 1024px)   {
+    .modals img {
+        max-width: 230px;
+        height: 216px;
+        border-radius: 10%;
+        object-fit: cover;
+    }
     .content-items {
         height: 91vh;
     }
     .content-sidebar {
         min-height: 827px;
     }
-    hr {
-        margin-top: -15px;
+    .content-sidebar table {
+        width: -webkit-fill-available;
     }
+    hr {
+        margin-top: -70px;
+    }
+    .left-sidebar {
+        height: 91.2vh;
+    }
+    .tbl-orders {
+        width: 765px;
+    }
+    .tbl-orders tbody {
+        height: 605px;
+        top: 10px;
+    }
+    .box-1 .line {
+        top: -19px;
+        left: 10px;
+        width: 230px;
+        margin-bottom: 30px;
+    }
+    .box-2 .line {
+        top: -21px;
+        left: 10px;
+        width: 230px;
+        margin-bottom: 34px;
+    }
+    .box-3 .line {
+        top: -19px;
+        left: 10px;
+        width: 230px;
+        margin-bottom: 27px;
+    }
+    .box-1 p{
+        margin-top: 10px;
+        margin-bottom: 31px;
+    }
+    .box-2 p {
+        margin-top: 3px;
+        margin-bottom: 18px;
+    }
+    .box-3 p {
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    .table-recent_orders {
+        padding: 10px 30px;
+        margin-top: 20px;
+        background: #fff;
+        border-radius: 20px;
+        overflow-y: hidden;
+        height: 70%;
+        width: 100%;
+    }
+
+    .modal-content-print {
+        background-color: #fefefe;
+        right: 0; /* 14.4% */
+        margin: auto;
+        padding: 20px;
+        padding-bottom: 60px;
+        border: 1px solid #888;
+        bottom: 13px;
+        width: 28%;
+        scale: 96%;
+        /* height: 51%; */
+        /* top: 404px; */
+        position: relative;
+        height: auto;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        left: 0%;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        bottom: -30px;
+        width: 28%;
+        scale: 96%;
+        /* height: 100%; */
+        /* top: 404px;*/
+    }
+
+    tbody {
+        height: 316px;
+    }
+    .cont-center table th {
+        width: 159px;
+    }
+    .tbl-orders th:last-child {
+        width: 220px;
+    }
+
 }
 
 @media (max-width: 1366px) and (max-height: 768px) {
+    .cont-products {
+        left: 3%;
+        position: relative;
+    }
+    
+    .box {
+        width: 39vh;
+    }
     .content-sidebar table {
         width: 100%;
     }
@@ -21,8 +135,8 @@
         grid-template-rows: repeat(2, 370px);
         grid-gap: 20px;
         height: 100%; /*87.5vh;*/
-        min-height: 781px;
-        padding: 50px;
+        max-height: 578px;
+        padding: 20px 40px 20px 40px;
         width: 70%;
         overflow: hidden;
         overflow-y: scroll;
@@ -31,7 +145,7 @@
     .content-sidebar {
         flex: 2;
         height: 100%;
-        min-height: 561px;
+        min-height: 577px;
         background: #e2d0e1;
         color: white;
         position: sticky;
@@ -40,6 +154,153 @@
     }
 
     hr {
-        margin-top: -70px;
+        margin-top: -217px;
     }
+
+    .container {
+        top: 80px;
+    }
+
+    .tax {
+        top: 308px;
+        width: 50%;
+        left: 232px;
+        position: absolute;
+        background: none;
+    }
+    .gtotal {
+        top: 354px;
+        left: 231px;
+        width: 50%;
+        position: absolute;
+        background: none;
+    }
+
+    .bill {
+        width: 450px;
+    }
+
+    .sign1 {
+        margin-left: 17px;
+    }
+    .sign2 {
+        margin-left: 37px;
+    }
+    #discount {
+        margin-left: 30px;
+        width: 50px;
+    }
+    .sign3 {
+        margin-left: 10px;
+    }
+    #cash {
+        margin-left: 22px;
+    }
+
+    .error-message {
+        top: 229px;
+        left: 109px;
+    }
+    #customer {
+        margin-left: 26px;
+    }
+
+    .modals {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 39px;
+        /* left: 27px; */
+        /* top: 0; */
+        width: 617px;
+        height: 629px;
+        overflow: auto;
+        /* background-color: rgb(0,0,0); */
+        /* background-color: rgba(0,0,0,0.4);*/
+    }
+
+    .modals img {
+        max-width: 230px;
+        height: 216px;
+        border-radius: 10%;
+        object-fit: cover;
+    }
+
+    .cont-center {
+        position: relative;
+        background-color: #fff;
+        right: 18%;
+        top: 11px;
+        padding: 50px;
+    }
+
+    .recent-close {
+        right: 210px;
+        top: 91px;
+    }
+
+    .recent {
+        width: 105%;
+    }
+
+    .box-1 .line {
+        top: 181px;
+        left: 10px;
+        width: 258px;
+        /* margin-bottom: 76px;*/
+    }
+    .box-2 .line {
+        top: 185px;
+        left: 10px;
+        width: 258px;
+        margin-bottom: 34px;
+    }
+    .box-3 .line {
+        top: 182px;
+        left: 10px;
+        width: 258px;
+        margin-bottom: 27px;
+    }
+
+    .table-recent_orders {
+        padding: 10px 30px;
+        margin-top: 20px;
+        background: #fff;
+        border-radius: 20px;
+        overflow-y: scroll;
+        height: 72%;
+        width: 100%;
+    }
+
+    .modal-content-print {
+        background-color: #fefefe;
+        /* right: 0; */
+        margin: auto;
+        padding: 20px;
+        padding-bottom: 50px;
+        border: 1px solid #888;
+        /* bottom: 100%; */
+        width: 28%;
+        scale: 100%;
+        position: relative;
+        height: auto;
+        /* top: -16%;*/
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        left: 0%;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        bottom: 0px;
+        width: 28%;
+        scale: 96%;
+    }
+    .tbl-orders {
+        margin-top: -15px;
+        height: 72%;
+        width: 88%;
+    }
+
 }

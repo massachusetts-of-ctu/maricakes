@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $productId = $conn->real_escape_string($product['id']);
             $productPrice = $conn->real_escape_string($product['price']);
             $productQty = $conn->real_escape_string($product['quantity']);
-            $proPrice = $conn->real_escape_string($product['option']);
+            $proPrice = $conn->real_escape_string($product['remove']);
             $productTotal = $conn->real_escape_string($receipt_data['totalPrice']);
             $order_id = $conn->real_escape_string($receipt_data['orNumber']);
             $tax = $conn->real_escape_string($receipt_data['taxAmount']);

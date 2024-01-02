@@ -13,3 +13,10 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
+
+var editmodal = document.querySelector('.modals');
+  if(editmodal.style.display == "block") {
+    editmodal.classList.add('modals-scale');
+  } else if(editmodal.style.display == "none") {
+    editmodal.classList.remove('modals-scale');
+  }

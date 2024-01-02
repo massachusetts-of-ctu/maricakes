@@ -5,13 +5,21 @@ if(isset($_SESSION['username'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MariCakes | Login</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
-  <link rel="stylesheet" href="assets/css/style_login.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="../assets/css/resibo.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="../assets/css/style_add.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="../assets/css/style_register.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="../assets/css/screen.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="../assets/css/addproduct.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>MariCakes | Add User</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
 </head>
 <body>
 
@@ -51,6 +59,7 @@ if(isset($_SESSION['username'])) {
 
         if ($stmt->num_rows > 0) {
             $username_err = "This username is already taken.";
+            $confirm_password_err = "";
         }
         
         if (empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
@@ -72,26 +81,75 @@ if(isset($_SESSION['username'])) {
         $conn->close();
     }
     ?>
-                    
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
-                            <div class="form-group mb-3 inputs"> 
-                                <input type="text" required="required" name="username" value="<?php echo $username; ?>">
-                                <span class="emails">Username</span>
-                            </div>
-                            <div class="form-group mb-3 inputs"> 
-                                <input type="password" required="required" name="password"> 
-                                <span class="passw">Password</span>
-                            </div>
-                            <div class="form-group mb-3 inputs"> 
-                                <input type="password" required="required" name="confirm_password"> 
-                                <span class="cpassw">Confirm Password</span>
-                            </div>
-                            <p class="error"><?php echo $username_err; ?><br><br><?php echo $password_err; ?><br><?php echo $confirm_password_err; ?></p>
-                            <button type="submit" class="btn butn">Add User!</button> 
+    <div class="load">
+      <div class="load_icon"></div>
+    </div>
+	<div class="navbar">
+      <div class="navbar-left">
+         <img src="../assets/img/logo.png">
+			<a href="../php/main.php">
+				<h2>MariCakes </h2>
+			</a>
+         <div class="search-bar">
+            <form id="search-form">
+            
+               <h3>   |   Cashier: <?php echo $_SESSION['username']; ?></h3>
+               
+            </form>
+         </div>
+      </div>
+      <div class="navbar-right">
+            <div class="message-icon" style="right: 20px; position:relative;">
+               <i class="bi bi-messenger"></i>
+            </div>
+            <!-- <div class="user-icon">
+                <i class="fa fa-user-o"></i>
+                <div class="dropdown-cont">
+                  <h3> <?php echo $_SESSION['username']; ?></h3>
+                  <div class="select"><a href="../php/add_product.php"><i class="bi bi-cake"></i>Manage Products</a></div>
+                  <div class="select"><a href="../php/recent_orders.php"><i class="bi bi-card-text"></i>Recent Orders</a></div>
+                  <div class="select"><a href="../php/register.php"><i class="bi bi-person-add"></i>Add Account</a></div>
+                  <div class="select"><a href="../process/logout.php"><i class="bi bi-box-arrow-right"></i>Log Out</a></div>
+                </div> 
+            </div> -->
+      </div>
+    </div>
+        
+    <div class="content">
+    <div class="left-sidebar">
+    <div class="select"><a href="../php/main.php"><i class="bi bi-cash-coin"></i>Point of Sale</a></div>
+        <div class="select"><a href="../php/add_product.php"><i class="bi bi-cake"></i>Manage Products</a></div>
+        <div class="select"><a href="../php/recent_orders.php"><i class="bi bi-card-text"></i>Recent Orders</a></div>
+        <div class="select"><a href="../php/register.php"><i class="bi bi-person-add"></i>Add User</a></div>
+        <div class="select"><a href="../process/logout.php"><i class="bi bi-box-arrow-right"></i>Log Out</a></div>
+    </div>
+    <div class="right-content">
+    <div class="reg-form">
+        <h1>Add New User</h1>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
+    <p class="error"><?php echo $username_err; ?><?php echo $password_err; ?><?php echo $confirm_password_err; ?></p>
+    <div > 
+        <input class="input-box box" id="user" type="text" required="required" name="username" value="<?php echo $username; ?>">
+        <label class="emails move">Username</label>
+    </div>
+    <div> 
+        <input class="input-box box" id="pass" type="password" required="required" name="password"> 
+        <label class="passw move">Password</label>
+    </div>
+    <div> 
+        <input class="input-box box" id="cpass" type="password" required="required" name="confirm_password"> 
+        <label class="cpassw move">Confirm Password</label>
+    </div>
+    <button type="submit" class="btn submit">Add User!</button> 
+    </form>
+    </div>
 
-                                    </u></a></p></div> </form> </div> </div> </div> </div>
-
-        </div> </div> </div>
+    </div>
+    
+    </div>
+    
+    <script src="../javascript/preload.js"></script>
+    <script src="../javascript/form_trans.js"></script>
 
 </body>
 </html>

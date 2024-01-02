@@ -4,7 +4,6 @@
 .order{
     display: flex;
     justify-content: space-between;
-    
 }
 .lower{
     display: flex;
@@ -13,3 +12,14 @@
 .footer {
     text-align: center;
 }
+
+.main table tbody{
+    display: contents;
+    height: auto;
+}
+
+.main table thead {
+    position: relative;   
+}
+
+

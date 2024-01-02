@@ -1,0 +1,24 @@
+bugs 
+
+main.php
+- mu proceed sa receipt even if wa pa naka commit ug payment
+	- dapat ma disable ang confirm button if wa pa naka commit 
+- even if gi remove sa table kay mu error gihapon ug "Product already added to order"
+- naay id number na sapaw sa product name.
+- himoong required ang customer name.
+
+/* more bugs probably not been found */
+
+add_product.php
+- sa modal, wla ko ka gets if unsay purpose sa icon.
+	- if wa ra siyay purpose kay i remove lng nato.
+
+/* more bugs probably not been found */
+
+recent_orders.php
+- today total sales kay di mu compute
+- today total number of customers di mu compute
+- murag naay limit ang transaction nga i save
+
+register.php
+- no bugs

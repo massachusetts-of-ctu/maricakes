@@ -248,55 +248,6 @@ position: relative;
 hr {
     margin-top: -70px;
 }
-.content-sidebar table {
-    position: absolute;
-    top: 0px;
-    border-collapse: collapse;
-}
-thead{
-    border: 1px solid;
-}
-tbody{
-    background-color: #d19bce;
-}
-tbody td {
-    padding-left: 3px;
-}
-.content-sidebar th {
-    background-color: #c05dc0; 
-    text-align: left;
-    padding: 3px 3px 3px 6px;
-    border: 1px;
-}
-th:first-child {
-    width: 308px;
-    text-align: left;
-    border-radius: 8px 0px 0px 0px;
-    overflow-x: hidden;
-}
-th:last-child {
-    width: 77px;
-    text-align: center;
-    border-radius: 0px 8px 0px 0px;
-}
-
-td:last-child {
-    text-align: center;
-
-}
-
-.qty-input {
-    width: 60px;
-    text-align: center;
-}
-
-.fa-trash-o{
-    font-size: 20em;
-    color: #f10921 !important;
-}
-.fa-trash-o:active {
-    color: #fa4c5e !important;
-}
 
 .reset {
     background-color: #dc3545;
