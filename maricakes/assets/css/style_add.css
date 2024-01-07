@@ -136,6 +136,61 @@ td {
   background-color: transparent;
   color: #dc3545;
 }
+
+.tbl-col-4 .view {
+  padding: 3px 6px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid;
+  background: #10006b;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.tbl-col-4 .view:hover {
+  scale: 105%;
+}
+.tbl-col-4 .view:active {
+  background-color: transparent;
+  color: #060244;
+}
+
+
+.tbl-col-4 .confirm-order {
+  padding: 3px 15px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid;
+  background: #247e00;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.tbl-col-4 .confirm-order:hover {
+  scale: 105%;
+}
+.tbl-col-4 .confirm-order:active {
+  background-color: transparent;
+  color: #247e00;
+}
+
+
+.tbl-col-4 .delete-order {
+  padding: 3px 6px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid;
+  background: #7e0000;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.tbl-col-4 .delete-order:hover {
+  scale: 105%;
+}
+.tbl-col-4 .delete-order:active {
+  background-color: transparent;
+  color: #7e0000;
+}
+
+
 .tbl-col-4 .edit {
   padding: 3px 6px;
   color: white;
@@ -276,7 +331,7 @@ th:first-child {
   height: 80%;
 }
 .tbl-orders {
-  margin-top: 15px;
+  margin-top: -28px;
 }
 .tbl-header{
   background: #d19bce;
@@ -480,6 +535,7 @@ th:first-child {
 .table-head {
   position: absolute;
   width: inherit;
+  background-color: #c05dc0;
 }
 
 .table-head th:first-child {

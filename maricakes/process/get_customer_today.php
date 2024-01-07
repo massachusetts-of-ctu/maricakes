@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Manila');
-$date = date("d-m-Y");  // Use "Y-m-d" format for MySQL date comparison
-$sql = "SELECT COUNT(*) AS customer_count FROM recent_orders WHERE DATE(date_created) = ?";
+$date = date("d");
+$sql = "SELECT COUNT(*) AS customer_count FROM recent_orders WHERE DAY(STR_TO_DATE(date_created, '%d/%m/%Y')) = ?";
 $stmt = $conn->prepare($sql);
 
 $stmt->bind_param("s", $date);

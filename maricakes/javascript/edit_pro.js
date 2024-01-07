@@ -120,6 +120,7 @@ $(document).ready(function() {
                     $('#r_gtotal').text('₱ ' + productDetails.total);
 
                     $('#r_orderId').text(productDetails.order_id);
+                    $('#r_customer').text(productDetails.cname);
                     $('#r_date').text(productDetails.date);
                     $('#r_time').text(productDetails.time);
                     $('#r_cashier').text(productDetails.cashier);
@@ -131,6 +132,85 @@ $(document).ready(function() {
             },
             error: function(error) {
                 console.log('Error fetching product details: ', error);
+            }
+        });
+    });
+});
+
+
+//pre-orders
+$(document).ready(function() {
+    $('.edit-pre-order').click(function() {
+        var productId = $(this).data('product-id');
+
+        $.ajax({
+            url: '../process/get_pre_order.php',
+            type: 'POST',
+            data: { productId: productId },
+            success: function(response) {
+                var productDetailsArray = JSON.parse(response);
+
+                if (productDetailsArray.length > 0) {
+                    // Assuming the first row contains the necessary information
+                    var productDetails = productDetailsArray[0];
+
+                    // Populate details table and calculate subtotal
+                    var detailsTableBody = $('#detailsTableBody');
+                    detailsTableBody.empty();
+                    var subtotal = 0;
+
+                    productDetailsArray.forEach(function(item) {
+                        var row = '<tr>' +
+                            '<td class="col-product">' + item.proname + '</td>' +
+                            '<td class="col-price">' + '₱ ' + item.price + '</td>' +
+                            '<td class="col-qty">' + item.qty + '</td>' +
+                            '</tr>';
+                        detailsTableBody.append(row);
+
+                        // Sum up the subtotal
+                        subtotal += parseFloat(item.pro_total);
+                    });
+
+                    // Populate other fields
+                    $('#r_prototal').text('₱ ' + subtotal.toFixed(2));
+                    $('#r_tax').text('₱ ' + productDetails.tax);
+                    $('#r_discount').text('₱ ' + productDetails.discount);
+                    $('#r_gtotal').text('₱ ' + productDetails.total);
+
+                    $('#r_orderId').text(productDetails.order_id);
+                    $('#r_date').text(productDetails.date);
+                    $('#r_time').text(productDetails.time);
+                    $('#r_cashier').text(productDetails.cashier);
+
+                    openModals();
+                } else {
+                    console.log('No product details found for the given order ID.');
+                }
+            },
+            error: function(error) {
+                console.log('Error fetching product details: ', error);
+            }
+        });
+    });
+});
+
+
+
+//confirm pre-order
+$(document).ready(function () {
+    $('.confirm-pre-order').click(function () {
+        var row = $(this).closest('tr');
+        var productId = $(this).data('product-id');
+        row.remove();
+        $.ajax({
+            type: 'POST',
+            url: '../process/confirm-pre-order.php',
+            data: { product_id: productId },
+            success: function (response) {
+                alert(response);
+            },
+            error: function () {
+                alert('Error processing the request.');
             }
         });
     });

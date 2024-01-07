@@ -4,7 +4,7 @@ include_once "../process/db.php";
 
 if (isset($_SESSION['username'])) {
 
-	$sql = "SELECT * FROM recent_orders";
+	$sql = "SELECT * FROM recent_orders ORDER BY date_created DESC";
 	$all_transaction = $conn->query($sql);
 
 ?>
@@ -67,6 +67,7 @@ if (isset($_SESSION['username'])) {
 				<div class="select"><a href="../php/main.php"><i class="bi bi-cash-coin"></i>Point of Sale</a></div>
 				<div class="select"><a href="../php/add_product.php"><i class="bi bi-cake"></i>Manage Products</a></div>
 				<div class="select"><a href="../php/recent_orders.php"><i class="bi bi-card-text"></i>Recent Orders</a></div>
+				<div class="select"><a href="../php/pre-order.php"><i class="bi bi-cart-plus"></i>Pre-Orders</a></div>
 				<div class="select"><a href="../php/register.php"><i class="bi bi-person-add"></i>Add User</a></div>
 				<div class="select"><a href="../process/logout.php"><i class="bi bi-box-arrow-right"></i>Log Out</a></div>
 			</div>
@@ -100,15 +101,18 @@ if (isset($_SESSION['username'])) {
 							</tr>
 							<?php
 						} else {
-							while ($row = mysqli_fetch_assoc($all_transaction)) {
-								$customer_id = $row["customer_id"];
-								$customer_query = "SELECT cname FROM customers WHERE customer_id = $customer_id";
-								$customer_result = $conn->query($customer_query);
+							$customer_name = ""; 
 
-								if ($customer_result && $customer_result->num_rows > 0) {
-									$customer_data = $customer_result->fetch_assoc();
-									$customer_name = $customer_data["cname"];
-								}
+								while ($row = mysqli_fetch_assoc($all_transaction)) {
+									$customer_id = $row["customer_id"];
+									$customer_query = "SELECT cname FROM customers WHERE customer_id = $customer_id";
+									$customer_result = $conn->query($customer_query);
+
+									if ($customer_result && $customer_result->num_rows > 0) {
+										$customer_data = $customer_result->fetch_assoc();
+										$customer_name = $customer_data["cname"];
+									}
+
 								?>
 
 								<tr>
@@ -125,7 +129,7 @@ if (isset($_SESSION['username'])) {
 										<?php echo $row["total"]; ?>
 									</td>
 									<td class="tbl-col-4">
-										<button class="delete edit-recent-order" onclick="openModals()"
+										<button class="view edit-recent-order" onclick="openModals()"
 											data-product-id="<?php echo $row["order_id"]; ?>">View Details</button>
 										<button class="delete delete-recent-order"
 											data-product-id="<?php echo $row["order_id"]; ?>">Delete</button>

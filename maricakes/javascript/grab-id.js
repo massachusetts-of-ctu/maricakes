@@ -40,6 +40,26 @@ $(document).ready(function () {
         });
     });
 });
+
+$(document).ready(function () {
+    $('.delete-pre-order').click(function () {
+        var row = $(this).closest('tr'); // Get the closest table row
+        var productId = $(this).data('product-id');
+        row.remove();
+        $.ajax({
+            type: 'POST',
+            url: '../process/delete-pre-order.php',
+            data: { product_id: productId },
+            success: function (response) {
+                alert(response);
+            },
+            error: function () {
+                alert('Error processing the request.');
+            }
+        });
+    });
+});
+
 function openModals() {
     $('#recent').show();
 }

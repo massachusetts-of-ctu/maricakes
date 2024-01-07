@@ -53,6 +53,7 @@ $all_products = $conn->query($sql);
                   <h3> <?php echo $_SESSION['username']; ?></h3>
                   <div class="select"><a href="../php/add_product.php"><i class="bi bi-cake"></i>Manage Products</a></div>
                   <div class="select"><a href="../php/recent_orders.php"><i class="bi bi-card-text"></i>Recent Orders</a></div>
+                  <div class="select"><a href="../php/pre-order.php"><i class="bi bi-cart-plus"></i>Pre-Orders</a></div>
                   <div class="select"><a href="../php/register.php"><i class="bi bi-person-add"></i>Add User</a></div>
                   <div class="select"><a href="../process/logout.php"><i class="bi bi-box-arrow-right"></i>Log Out</a></div>
                 </div>
